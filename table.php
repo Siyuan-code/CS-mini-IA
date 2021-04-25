@@ -84,6 +84,10 @@ function RecordStudent($conn,$name,$email,$subject,$grade){
 </head>
 <body>
 
+
+    <div class="background">
+    
+    </div>
     <h1 class="heading">Enter your information here</h1>    
     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
         <label for="name" class="label">Name:</label>

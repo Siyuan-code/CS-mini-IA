@@ -4,15 +4,36 @@
   box-sizing: border-box;
 }
 
-body {
-  background: rgb(46, 46, 46);
-}
-
 .heading {
   margin-bottom: 0px;
   margin-left: 100px;
   margin-top: 30px;
   color: white;
+}
+
+.background {
+  width: 1280px;
+  height: 700px;
+  /* background: rgb(0, 0, 0); */
+  position: absolute;
+  top: 0px;
+  right: 1000px;
+  z-index: -1;
+  animation: move 2s 1;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes move {
+  0% {
+    opacity: 1;
+    background: linear-gradient(to right, rgb(0, 0, 0), rgb(85, 83, 189));
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(1000px);
+    background: linear-gradient(to right, rgb(0, 0, 0), rgb(85, 83, 189));
+  }
 }
 
 form {
@@ -29,9 +50,21 @@ form {
   background: #f1f1f1;
   position: relative;
   top: 30px;
-  left: 200px;
-  border: 2px solid rgb(23, 148, 197);
+  left: 0px;
+  border: 2px solid rgb(87, 87, 87);
   outline: none;
+  animation: fadein 2s 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(200px);
+  }
 }
 
 .label {
@@ -41,7 +74,7 @@ form {
   top: 70px;
   left: 20px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  color: rgb(66, 150, 184);
+  color: rgb(255, 255, 255);
 }
 
 .submit {
@@ -56,7 +89,19 @@ form {
   outline: none;
   position: relative;
   left: 200px;
-  top: 80px;
+  top: 270px;
+  animation: fly 2s 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fly {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-200px);
+  }
 }
 
 .select {
@@ -64,8 +109,20 @@ form {
   height: 30px;
   position: relative;
   top: 50px;
-  left: 200px;
+  left: 0px;
   color: rgb(0, 0, 0);
   margin-bottom: 20px;
   /* background: red; */
+  animation: fadein1 2s 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadein1 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(200px);
+  }
 }
