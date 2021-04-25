@@ -64,7 +64,7 @@ function RecordStudent($conn,$name,$email,$subject,$grade){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mini IA</title>
-    <link rel="stylesheet" href="table.css?rnd=1">
+    <link rel="stylesheet" href="table.css?rnd=2">
 </head>
 <body>
 
@@ -74,22 +74,23 @@ function RecordStudent($conn,$name,$email,$subject,$grade){
         <input type="text" name="name" class="name" placeholder="Enter first name and last name">
         <label for="name" class="label">Email:</label>
         <input type="email" name="email" class="name">
-        <label for="name" class="label"> EE subjects:</label>
-        <!-- <input type="text" name="subject" class="name"> -->
-        <!-- <input type="radio" name="subject" id=""> Math
-        <input type="radio" name="subject" id=""> English
-        <input type="radio" name="subject" id=""> Physics
-        <input type="radio" name="subject" id=""> Psychology
-        <input type="radio" name="subject" id=""> Economics -->
-        <select name="subject" id="">
+        <!-- <label for="name" class="label"> EE subjects:</label> -->
+        <!-- <label for="name" class="label">grades in the course:</label>
+        <input type="text" name="grades" class="name"> -->
+        <label for="" class="label">EE subjects</label>
+        <div>
+            <select name="subject" class="select" id="">
                 <option value="Math">Math</option>
                 <option value="English">English</option>
                 <option value="Physics">Physics</option>
                 <option value="Psychology">Psychology</option>
                 <option value="Echonomics">Economics</option>
-        </select>
+            </select>
+        </div>
         <label for="name" class="label">grades in the course:</label>
         <input type="text" name="grades" class="name">
+        <!-- <label for="name" class="label">grades in the course:</label>
+        <input type="text" name="grades" class="name"> -->
         <input type="submit" value="submit" name="submit" class="submit">
 
 </form>
