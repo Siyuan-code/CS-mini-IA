@@ -9,14 +9,19 @@ $grade = $_POST['grades'];
 require_once 'link.php';
 
 if(emptyInputSignup($name,$email,$subject,$grade) !== false){
-        header("location: ../IA/table.php?error=emptyinput");
+        header("location: ../table.php?error=emptyinput");
         exit();
     }
 
 if(invalidEmail($email) !== false){
-        header("location: ../IA/table.php?error=invalidemail");
+        header("location: ../table.php?error=invalidemail");
         exit();
     }
+
+if(invalidSubject($subject) !== false){
+    header("location: ../table.php?error=invalidsubject");
+    exit();
+}
 RecordStudent($conn, $name, $email,$subject, $grade);
 }
 
@@ -43,17 +48,28 @@ function invalidEmail($email){
     return $result;
 }
 
+function invalidSubject($subject){
+    $result;
+    if($subject == "choose"){
+        $result = true;
+    }
+    else{
+        $result = false;
+    }
+    return $result;
+}
+
 function RecordStudent($conn,$name,$email,$subject,$grade){
    $sql = "INSERT INTO studentinfo (names, email, EE_subject, grade) VALUES (?,?,?,?);";
    $stmt = mysqli_stmt_init($conn);
    if(!mysqli_stmt_prepare($stmt,$sql)){
-        header("location: ../IA/table.php?error=stmtfailed");
+        header("location: ../table.php?error=stmtfailed");
         exit();
    }
    mysqli_stmt_bind_param($stmt,"ssss", $name,$email,$subject,$grade);
    mysqli_stmt_execute($stmt);
    mysqli_stmt_close($stmt);
-   header("location: ../IA/table.php?error=none");
+   header("location: ../table.php?error=none");
    exit();
 }
 ?>
@@ -80,6 +96,7 @@ function RecordStudent($conn,$name,$email,$subject,$grade){
         <label for="" class="label">EE subjects</label>
         <div>
             <select name="subject" class="select" id="">
+                <option value="choose">Choose subjects</option>
                 <option value="Math">Math</option>
                 <option value="English">English</option>
                 <option value="Physics">Physics</option>
