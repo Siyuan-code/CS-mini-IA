@@ -19,8 +19,8 @@
   top: 0px;
   right: 1000px;
   z-index: -1;
-  animation: move 0.8s 1;
-  animation-timing-function: ease-out;
+  animation: move 0.5s 1;
+  animation-timing-function: ease-in;
   animation-fill-mode: forwards;
   animation-delay: 2s;
 }
