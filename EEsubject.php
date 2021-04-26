@@ -30,15 +30,11 @@ while ($temp = $result->fetch_assoc()){
     }
 }
 
-// echo $count;
-// echo "<br>";
-// echo $countP;
-// echo "<br>";
-// echo $countS;
-// echo "<br>";
-// echo $countE;
-// echo "<br>";
-// echo $countG;
+
+
+
+
+
 
 ?>
 

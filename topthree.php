@@ -1,13 +1,47 @@
 <?php
 // to work with IA insert all student choices into  array field of $database = array(___);
 
-$database = array('a', 'b', 'b', 'b', 'b', 'a', 'c', 'a', 'b', 'b', 'b', 'b', 'c', 'e');
+// $database = array('a', 'b', 'b', 'b', 'b', 'a', 'c', 'a', 'b', 'b', 'b', 'b', 'c', 'e');
+
+$result = mysqli_query($conn, $query);
+
+mysqli_free_result($result);
+
+mysqli_close($conn);
+
+require "link.php";
+$query = "SELECT EE_subject FROM studentinfo";
+
+$result = $conn->query($query);
+
 $place = array();
 $talley = array();
 $counter = 0;
 
+while ($subject = mysqli_fetch_assoc($result)){
+  print_r($subject);
+  if($temp['EE_subject'] == "Math"){
+        $count++;
+    }
+    elseif($temp['EE_subject'] == "Physics"){
+        $countP++;
+    }
+    elseif($temp['EE_subject'] == "Psychology"){
+        $countS++;
+    }
+    elseif($temp['EE_subject'] == "Economics"){
+        $countE++;
+    }
+    elseif($temp['EE_subject'] == "English"){
+        $countG++;
+    }
 
-for ($i=0; $i < count($database); $i++) {
+}
+
+
+
+for ($i=0; $i < count($database); $i++) 
+{
 $counter = 0;
   for ($j=0; $j < count($place); $j++) {
     if ($database[$i] == $place[$j]) {
@@ -73,3 +107,16 @@ for ($i=0; $i < 3; $i++) {
 }
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Three popular subjects</title>
+  <link rel="stylesheet" href="table.css?rnd=5">
+</head>
+<body>
+  <a href="home.php"><button class="back2">Back to homepage</button></a>
+</body>
+</html>
