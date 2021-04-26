@@ -1,13 +1,9 @@
 {
   "folders": [
-	{
-		"name": "CS-mini-IA",
-		"path": "."
-	},
-	{
-		"name": "IA",
-		"path": "../CAS-project/htdocs/IA"
-	}
-],
+    {
+      "name": "CS-mini-IA",
+      "path": "."
+    }
+  ],
   "settings": {}
 }

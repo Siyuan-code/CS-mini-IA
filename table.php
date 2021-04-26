@@ -8,7 +8,7 @@ $grade = $_POST['grades'];
 
 require_once 'link.php';
 
-if(emptyInputSignup($name,$email,$subject,$grade) !== false){
+if(emptyInputStudent($name,$email,$subject,$grade) !== false){
         header("location: ../table.php?error=emptyinput");
         exit();
     }
@@ -22,13 +22,28 @@ if(invalidSubject($subject) !== false){
     header("location: ../table.php?error=invalidsubject");
     exit();
 }
+if(invalidGrade($grade) !== false){
+    header("location: ../table.php?error=invalidgrade");
+    exit();
+}
 RecordStudent($conn, $name, $email,$subject, $grade);
 }
 
 
-function emptyInputSignup($name,$email,$subject,$grade){
+function emptyInputStudent($name,$email,$subject,$grade){
     $result;
     if(empty($name) || empty($email) || empty($subject) || empty($grade)){
+        $result = true;
+    }
+    else{
+        $result = false;
+    }
+    return $result;
+}
+
+function invalidGrade($grade){
+    $result;
+    if(!preg_match("/^[A-F]*$/", $grade)){
         $result = true;
     }
     else{
@@ -80,7 +95,7 @@ function RecordStudent($conn,$name,$email,$subject,$grade){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mini IA</title>
-    <link rel="stylesheet" href="table.css">
+    <link rel="stylesheet" href="table.css?rnd=5">
 </head>
 <body>
 
@@ -94,9 +109,6 @@ function RecordStudent($conn,$name,$email,$subject,$grade){
         <input type="text" name="name" class="name" placeholder="Enter first name and last name">
         <label for="name" class="label">Email:</label>
         <input type="email" name="email" class="name">
-        <!-- <label for="name" class="label"> EE subjects:</label> -->
-        <!-- <label for="name" class="label">grades in the course:</label>
-        <input type="text" name="grades" class="name"> -->
         <label for="" class="label">EE subjects</label>
         <div>
             <select name="subject" class="select" id="">
@@ -105,16 +117,14 @@ function RecordStudent($conn,$name,$email,$subject,$grade){
                 <option value="English">English</option>
                 <option value="Physics">Physics</option>
                 <option value="Psychology">Psychology</option>
-                <option value="Echonomics">Economics</option>
+                <option value="Economics">Economics</option>
             </select>
         </div>
         <label for="name" class="label">grades in the course:</label>
         <input type="text" name="grades" class="name">
-        <!-- <label for="name" class="label">grades in the course:</label>
-        <input type="text" name="grades" class="name"> -->
         <input type="submit" value="submit" name="submit" class="submit">
-
-</form>
+    </form>
+    <a href="home.php"><button class="back">Back to homepage</button></a>
 </body>
 </html>
 
