@@ -52,19 +52,20 @@ $counter = 0;
 
 while ($subject = mysqli_fetch_assoc($result)){
   if($subject['EE_subject'] == "Math"){
-        array_push($database, 'm')
+      $count++;
+        array_push($database, 'Math');
     }
     elseif($subject['EE_subject'] == "Physics"){
-        array_push($database, 'p')
+        array_push($database, 'Physics');
     }
     elseif($subject['EE_subject'] == "Psychology"){
-        array_push($database, 'psy')
+        array_push($database, 'Psychology');
     }
     elseif($subject['EE_subject'] == "Economics"){
-        array_push($database, 'ec')
+        array_push($database, 'Economics');
     }
     elseif($subject['EE_subject'] == "English"){
-        array_push($database, 'en')
+        array_push($database, 'English');
     }
 
 }
