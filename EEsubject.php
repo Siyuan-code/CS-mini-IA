@@ -8,31 +8,6 @@ $countS = 0;
 $countE = 0;
 $countG = 0;
 
-$query = "SELECT EE_subject FROM studentinfo";
-
-$result = $conn->query($query);
-
-while ($temp = $result->fetch_assoc()){
-    if($temp['EE_subject'] == "Math"){
-        $count++;
-    }
-    elseif($temp['EE_subject'] == "Physics"){
-        $countP++;
-    }
-    elseif($temp['EE_subject'] == "Psychology"){
-        $countS++;
-    }
-    elseif($temp['EE_subject'] == "Economics"){
-        $countE++;
-    }
-    elseif($temp['EE_subject'] == "English"){
-        $countG++;
-    }
-}
-
-
-// to work with IA insert all student choices into  array field of $database = array(___);
-
 $database = array();
 
 $result = mysqli_query($conn, $query);
@@ -52,25 +27,27 @@ $counter = 0;
 
 while ($subject = mysqli_fetch_assoc($result)){
   if($subject['EE_subject'] == "Math"){
-      $count++;
         array_push($database, 'Math');
+        $count++;
     }
     elseif($subject['EE_subject'] == "Physics"){
         array_push($database, 'Physics');
+        $countP++;
     }
     elseif($subject['EE_subject'] == "Psychology"){
         array_push($database, 'Psychology');
+        $countS++;
     }
     elseif($subject['EE_subject'] == "Economics"){
         array_push($database, 'Economics');
+        $countE++;
     }
     elseif($subject['EE_subject'] == "English"){
         array_push($database, 'English');
+        $countG++;
     }
 
 }
-print_r($database);
-
 //__________________________________________________________________________________
 
 for ($i=0; $i < count($database); $i++)
@@ -141,26 +118,6 @@ $counter = 1;
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Top Three popular subjects</title>
-  <link rel="stylesheet" href="table.css?rnd=5">
-</head>
-<body>
-  <a href="home.php"><button class="back2">Back to homepage</button></a>
-</body>
-</html>
-
-
-
-
-
-
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EEsubject</title>
@@ -174,6 +131,16 @@ $counter = 1;
     <h3 class="subject">Physics : <?php echo $countP ?></h3>
     <h3 class="subject">Psychology : <?php echo $countS ?></h3>
     <h3 class="subject">Economics : <?php echo $countE ?></h3>
+
+<h3 class="topThree">
+    <?php 
+    echo "Top three popular subjects that students have chosen<br>";
+for ($i=0; $i < 3; $i++) {
+  echo $talley[$i][0]."<br>";
+}
+    
+    ?>
+    </h3>
 
     <a href="home.php"><button class="back2">Back to homepage</button></a>
 </body>

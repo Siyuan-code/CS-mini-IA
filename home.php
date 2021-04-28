@@ -13,6 +13,6 @@
 
     <a href="table.php"><button class="fill">Fill in the form</button></a>
     <a href="EEsubject.php"><button class="fill">Want to see how many people have chosen each subject?</button></a>
-    <a href="topthree.php"><button class="fill">Want to see the top 3 popular subjects?</button></a>
+    <a href="findDE.php"><button class="fill">People who got D or F in their chosen subject</button></a>
 </body>
 </html>
