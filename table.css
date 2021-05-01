@@ -255,3 +255,62 @@ th {
 .title {
   margin: 50px 50px;
 }
+
+form.search input[type="text"] {
+  padding: 5px;
+  font-size: 17px;
+  border: 1px solid rgb(19, 142, 163);
+  float: center;
+  width: 40%;
+  background: white;
+  display: block;
+  position: absolute;
+  left: 400px;
+  margin-top: 50px;
+  outline: none;
+}
+
+form.search button {
+  width: 100px;
+  padding: 5px;
+  background: rgb(231, 124, 124);
+  color: rgb(0, 0, 0);
+  font-size: 17px;
+  border: 1px solid grey;
+  cursor: pointer;
+  position: absolute;
+  margin-top: 50px;
+  right: 310px;
+  z-index: 4;
+}
+
+form.search button:hover {
+  background: rgb(207, 12, 12);
+}
+
+form.search::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.result {
+  position: relative;
+  top: 200px;
+  left: 600px;
+}
+
+.back3 {
+  width: 200px;
+  background: rgb(211, 111, 80);
+  color: black;
+  padding: 14px 15px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  outline: none;
+  position: relative;
+  left: 550px;
+  top: 250px;
+}
