@@ -46,7 +46,8 @@ while ($subject = mysqli_fetch_assoc($result)){
         array_push($database, 'English');
         $countG++;
     }
-
+// echo gettype($subject['EE_subject']);
+// echo $subject['EE_subject'];
 }
 //__________________________________________________________________________________
 
