@@ -314,3 +314,22 @@ form.search::after {
   left: 550px;
   top: 250px;
 }
+
+.phase1 {
+  height: 200px;
+  background-color: aqua;
+  position: relative;
+  top: 10px;
+}
+
+.phase2h {
+  position: relative;
+  top: 20px;
+}
+
+.phase2 {
+  height: 200px;
+  background-color: aqua;
+  position: relative;
+  top: 30px;
+}
