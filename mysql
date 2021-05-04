@@ -5,3 +5,6 @@ create table userinfo(
     userLastName varchar(128) not null
 );
 insert into userinfo (username, number) VALUES ('Siyuan', '10')
+
+ALTER TABLE candidates
+ADD COLUMN phone VARCHAR(50);

@@ -1,49 +1,34 @@
 <?php 
 
 if(isset($_POST['submit'])){
-$name = $_POST['name'];
-$email = $_POST['email'];
-$subject = $_POST['subject'];
-$grade = $_POST['grades']; 
+$name = $_POST['teacherName'];
+$email = $_POST['teacherEmail'];
+$choiceF = $_POST['choiceFirst'];
+$choiceS = $_POST['choiceSecond']; 
 
 require_once 'link.php';
 
-if(emptyInputStudent($name,$email,$subject,$grade) !== false){
-        header("location: ../table.php?error=emptyinput");
+if(emptyInputTeacher($name,$email,$choiceF,$choiceS) !== false){
+        header("location: ../teacher.php?error=emptyinput");
         exit();
     }
 
 if(invalidEmail($email) !== false){
-        header("location: ../table.php?error=invalidemail");
+        header("location: ../teacher.php?error=invalidemail");
         exit();
     }
 
-if(invalidSubject($subject) !== false){
-    header("location: ../table.php?error=invalidsubject");
+if(invalidSubject($choiceF, $choiceS) !== false){
+    header("location: ../teacher.php?error=invalidsubject");
     exit();
 }
-if(invalidGrade($grade) !== false){
-    header("location: ../table.php?error=invalidgrade");
-    exit();
-}
-RecordStudent($conn, $name, $email,$subject, $grade);
+RecordTeacher($conn, $name, $email,$choiceF, $choiceS);
 }
 
 
-function emptyInputStudent($name,$email,$subject,$grade){
+function emptyInputTeacher($name,$email,$choiceF,$choiceS){
     $result;
-    if(empty($name) || empty($email) || empty($subject) || empty($grade)){
-        $result = true;
-    }
-    else{
-        $result = false;
-    }
-    return $result;
-}
-
-function invalidGrade($grade){
-    $result;
-    if(!preg_match("/^[A-F]*$/", $grade)){
+    if(empty($name) || empty($email) || empty($choiceF) || empty($choiceS)){
         $result = true;
     }
     else{
@@ -63,9 +48,9 @@ function invalidEmail($email){
     return $result;
 }
 
-function invalidSubject($subject){
+function invalidSubject($choiceF, $choiceS){
     $result;
-    if($subject == "choose"){
+    if($choiceF == "choose" || $choiceS == "choose"){
         $result = true;
     }
     else{
@@ -74,17 +59,17 @@ function invalidSubject($subject){
     return $result;
 }
 
-function RecordStudent($conn,$name,$email,$subject,$grade){
-   $sql = "INSERT INTO studentinfo (names, email, EE_subject, grade) VALUES (?,?,?,?);";
+function RecordTeacher($conn,$name,$email,$choiceF,$choiceS){
+   $sql = "INSERT INTO teacher (names, email, choiceF, choiceS) VALUES (?,?,?,?);";
    $stmt = mysqli_stmt_init($conn);
    if(!mysqli_stmt_prepare($stmt,$sql)){
-        header("location: ../table.php?error=stmtfailed");
+        header("location: ../teacher.php?error=stmtfailed");
         exit();
    }
-   mysqli_stmt_bind_param($stmt,"ssss", $name,$email,$subject,$grade);
+   mysqli_stmt_bind_param($stmt,"ssss", $name,$email,$choiceF,$choiceS);
    mysqli_stmt_execute($stmt);
    mysqli_stmt_close($stmt);
-   header("location: ../table.php?error=none");
+   header("location: ../teacher.php?error=none");
    exit();
 }
 
@@ -115,13 +100,30 @@ function RecordStudent($conn,$name,$email,$subject,$grade){
     <label for="teacherEmail" class="label">Email:</label>
     <input type='text' name='teacherEmail' placeholder='Enter email adress' class="name">
     <label for="choiceFirst" class="label"> first choice:</label>
-    <input type='text' name='choiceFirst' placeholder='Enter EE Subject 1st choice' class="name">
+        <div>
+            <select name="choiceFirst" class="select" id="">
+                <option value="choose">Choose subjects</option>
+                <option value="Math">Math</option>
+                <option value="English">English</option>
+                <option value="Physics">Physics</option>
+                <option value="Psychology">Psychology</option>
+                <option value="Economics">Economics</option>
+            </select>
+        </div>
     <label for="choiceSecond" class="label"> second choice:</label>
-    <input type='text' name='choiceSecond' placeholder='Enter EE Subject 2nd choice' class="name">
-    <br>
+     <div>
+            <select name="choiceSecond" class="select" id="">
+                <option value="choose">Choose subjects</option>
+                <option value="Math">Math</option>
+                <option value="English">English</option>
+                <option value="Physics">Physics</option>
+                <option value="Psychology">Psychology</option>
+                <option value="Economics">Economics</option>
+            </select>
+        </div>
     <input type='submit' name='submit' value='Submit' class="submit">
   </form>
-
+<a href="home.php"><button class="back">Back to homepage</button></a>
 </body>
 </html>
 
