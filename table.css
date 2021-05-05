@@ -333,3 +333,15 @@ form.search::after {
   position: relative;
   top: 30px;
 }
+
+.phase3 {
+  height: 200px;
+  background-color: aqua;
+  position: relative;
+  top: 30px;
+}
+
+.phase3h {
+  position: relative;
+  top: 30px;
+}

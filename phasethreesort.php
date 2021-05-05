@@ -11,7 +11,7 @@ $studentchoice = array(array('Student1','Student2','Student3','Student4','Studen
                        array(0,0,0,0,0,0,0,0,0));
                            // 1st row is name 2nd row is choice 3rd row = teacher assigned
 // echo "Hello";
-for ($j=0; $j < count($studentchoice[0]); $i++) {
+for ($j=0; $j < count($studentchoice[0]); $j++) {
   if ($studentchoice[2][$i] == 0) {
     // echo "Hello";
     for ($i=0; $i < count($teacherchoice[0]); $i++) {

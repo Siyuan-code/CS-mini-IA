@@ -8,3 +8,5 @@ insert into userinfo (username, number) VALUES ('Siyuan', '10')
 
 ALTER TABLE candidates
 ADD COLUMN phone VARCHAR(50);
+
+ALTER TABLE Employees CHANGE COLUMN empName empName VARCHAR(50) AFTER department;
