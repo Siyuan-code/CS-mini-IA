@@ -64,23 +64,24 @@ for ($j=0; $j < count($studentchoice[0]); $j++) {
             }
             $i = count($teacherchoice[0]);
 
-      }elseif ($studentchoice[1][$j] == $teacherchoice[2][$i] && $teacherchoice[3][$i] < 4){
-        $teacherchoice[3][$i] += 1; // increases quantity assigend to teacher
-        $studentchoice[2][$j] = $teacherchoice[0][$i]; // reccords teacher student assigned to
-
-           for ($k=0; $k < 4; $k++) {
-                if(!isset($teacherchoice[$k+4][$i])){
-                  $teacherchoice[$k+4][$i] = $studentchoice[0][$j];
-                  $k = 4;
-                }
-           }
-           $i = count($teacherchoice[0]);
-
-        }else{
-          if ($studentchoice[2][$j] == 0) {
-            $studentchoice[2][$j] = 'No teacher available please change subject';
-          }
       }
+      // elseif ($studentchoice[1][$j] == $teacherchoice[2][$i] && $teacherchoice[3][$i] < 4){
+      //   $teacherchoice[3][$i] += 1; // increases quantity assigend to teacher
+      //   $studentchoice[2][$j] = $teacherchoice[0][$i]; // reccords teacher student assigned to
+
+      //      for ($k=0; $k < 4; $k++) {
+      //           if(!isset($teacherchoice[$k+4][$i])){
+      //             $teacherchoice[$k+4][$i] = $studentchoice[0][$j];
+      //             $k = 4;
+      //           }
+      //      }
+      //      $i = count($teacherchoice[0]);
+
+      //   }else{
+      //     if ($studentchoice[2][$j] == 0) {
+      //       $studentchoice[2][$j] = 'No teacher available please change subject';
+      //     }
+      // }
     }
   }
 }
