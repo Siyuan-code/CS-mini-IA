@@ -15,15 +15,8 @@ while($grade = mysqli_fetch_assoc($result)){
         array_push($studentinfos[2], $grade['EE_subject']);
         array_push($studentinfos[3], $grade['email']);
     }
-    // echo $grade['names']."<br>";
-    // echo $grade['grade']."<br>";
-    // echo $grade['EE_subject'];
-    // echo $grade['email'];
-    // echo $grade['names'];
-
 }
-// print_r($studentinfos);
-// echo($studentinfos[1][2]);
+
 ?>
 
 <!DOCTYPE html>
