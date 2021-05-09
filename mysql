@@ -17,3 +17,7 @@ UPDATE teacher SET no_assigned='0' WHERE id='2',id="3";
 ALTER TABLE old_table_name RENAME new_table_name;
 
 FOREIGN KEY (parent_id) REFERENCES `parent`(`id`)
+
+ALTER TABLE yourTableName MODIFY COLUMN yourColumnName data type after yourColumnName.
+
+ALTER TABLE student_enroll_data MODIFY COLUMN student_ssn_no BIGINT AFTER student_id ;

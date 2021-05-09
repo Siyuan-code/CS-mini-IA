@@ -21,7 +21,7 @@
     <h2 class="phase2h">Phase 2 : Teacher</h2>
     <div class="phase2">
         <a href="teacher.php"><button class="fill">Fill in the form</button></a>
-        <a href="searchT.php"><button class="fill">Search for teacher</button></a>
+        <a href="searchT.php"><button class="fill">Search for teacher's first and second choice</button></a>
         <a href="math.php"><button class="fill">All teacher who got math as their second choice</button></a>
     </div>
     <h2 class="phase3h">Phase 3 : Assigning</h2>
